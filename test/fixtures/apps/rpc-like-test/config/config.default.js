@@ -1,10 +1,12 @@
 'use strict';
 
+const generators = require('../../../../../index');
+
 exports.keys = '123456';
 
 exports.rpcLike = {
   default: {
-    generator: data => data,
+    generator: generators.simpleCurl,
   },
   clients: {
     test: {

@@ -37,6 +37,8 @@
     "autod": "autod"
   },
   "files": [
+    "index.js",
+    "app",
     "config",
     "app.js"
   ],
