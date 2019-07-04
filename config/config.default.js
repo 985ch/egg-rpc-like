@@ -4,28 +4,22 @@
  * egg-rpc-like default config
  * @member Config#rpcLike
  */
+/*
 exports.rpcLike = {
   default: {
-    generator: data => data,
+    $generator: (member, config) => {},
   },
-  // Single Cache
-  // client: {
-  //   host: 'http://your.site.com',
-  //   generator: (ctx, member) => {},
-  //   api:[['method','url', {method:'GET'}]]
-  // },
-
-  // Multi Redis
-  // clients: {
-  //   instance1: {
-  //     host: 'http://your.site.com',
-  //     generator: (ctx, member) => {},
-  //     api:[]
-  //   },
-  //   instance2: {
-  //     host: 'http://your.site.com',
-  //     generator: (ctx, member) => {},
-  //     api:[]
-  //   },
-  // },
+  clients: {
+    instance1: {
+      host: 'http://your.site.com',
+      $generator: (ctx, member) => {},
+      $members: [],
+    },
+    instance2: {
+      host: 'http://your.site.com',
+      $generator: (ctx, member) => {},
+      $members: [],
+    },
+  },
 };
+*/

@@ -1,18 +1,20 @@
 {
   "name": "egg-rpc-like",
   "version": "1.0.0",
-  "description": "This plugin allows you to use curl like rpc",
+  "description": "This plugin allows developers to access remote servers in the form of RPC",
   "eggPlugin": {
     "name": "rpcLike"
   },
   "keywords": [
     "egg",
     "eggPlugin",
-    "egg-plugin"
+    "egg-plugin",
+    "rpc",
+    "rpcLike"
   ],
   "dependencies": {
     "lodash": "^4.17.11",
-    "obj-gen-9": "^1.1.1"
+    "obj-gen-9": "^1.2.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

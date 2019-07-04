@@ -15,6 +15,12 @@ describe('test/rpc-like.test.js', () => {
   afterEach(mock.restore);
 
   it('should GET /', () => {
+    app.mockHttpclient('http://testserver/test', 'GET', {
+      data: 'test success',
+    });
+    app.mockHttpclient('http://testserver/rpc/xxx', 'GET', {
+      data: { data: 5 },
+    });
     return app.httpRequest()
       .get('/')
       .expect('hi, rpcLike')

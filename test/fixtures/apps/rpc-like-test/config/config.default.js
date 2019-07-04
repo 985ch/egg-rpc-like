@@ -6,21 +6,20 @@ exports.keys = '123456';
 
 exports.rpcLike = {
   default: {
-    generator: generators.simpleCurl,
+    $generator: generators.simpleCurl(data => data),
   },
   clients: {
     test: {
-      host: 'http://127.0.0.1:7001',
-      api: [{
-        key: 'test',
-        url: 'test',
-      }],
+      host: 'http://testserver',
+      options: { dataType: 'text' },
+      $members: [ 'test' ],
     },
     test2: {
-      host: 'http://127.0.0.1:7001',
-      api: [{
-        key: 'test',
-        url: 'test',
+      host: 'http://testserver',
+      $generator: generators.functionCurl,
+      $members: [{
+        $key: 'test',
+        api: 'rpc/xxx',
       }],
     },
   },

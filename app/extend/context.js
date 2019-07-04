@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  rpcl(name) {
-    return this.app.rpcLike.get(name);
+  get rpcl() {
+    return this.app.rpcl;
   },
 };

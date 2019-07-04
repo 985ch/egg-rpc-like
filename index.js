@@ -2,20 +2,51 @@
 
 const _ = require('lodash');
 
-function simpleCurl(member) {
-  const api = member.url || member.key || member;
-  return async function(params) {
-    const opt = _.clone(member.options || this.$config.options || { method: 'GET', dataType: 'json' });
-    if (params)opt.data = params;
-    const url = this.$host + '/' + api;
+function simpleCurl(getData) {
+  return function(member, { host, options }) {
+    const api = member.api || member.key || member;
+
+    return async function(params) {
+      const opt = _.clone(member.options || options || { method: 'GET', dataType: 'json' });
+      if (params)opt.data = params;
+      const url = host + '/' + api;
+      const { status, data } = await this.app.curl(url, opt);
+      if (status !== 200) {
+        throw new Error(`failed to request [${opt.method}]${url} status:${status}`);
+      }
+
+      return getData(data);
+    };
+  };
+}
+
+function functionCurl(member, { paramName, host, options }) {
+  const api = member.api || member.key || member;
+  const pname = paramName || 'arg';
+  return async function() {
+    const opt = _.clone(member.options || options || { method: 'GET', dataType: 'json' });
+
+    const params = { t: Date.now() };
+    const args = new Array(arguments.length);
+    for (const key in arguments) {
+      args[key] = arguments[key];
+    }
+    params[pname] = JSON.stringify(args);
+    opt.data = params;
+
+    const url = host + '/' + api;
     const { status, data } = await this.app.curl(url, opt);
     if (status !== 200) {
       throw new Error(`failed to request [${opt.method}]${url} status:${status}`);
+    } else if (data.err) {
+      throw new Error(`remote function error ${url},code:${data.err},msg:${data.msg}`);
     }
-    return data;
+
+    return data.data;
   };
 }
 
 module.exports = {
   simpleCurl,
+  functionCurl,
 };
