@@ -22,6 +22,7 @@
 
 > This plugin allows developers to access remote servers in the form of RPC, whether it is an http request, a database operation or use another RPC.
 
+## [中文说明](./README.zh_CN.md)
 ## Install
 
 ```bash
