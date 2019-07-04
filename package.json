@@ -1,6 +1,6 @@
 {
   "name": "egg-rpc-like",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This plugin allows developers to access remote servers in the form of RPC",
   "eggPlugin": {
     "name": "rpcLike"
@@ -49,12 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-rpc-like.git"
+    "url": "git+https://github.com/985ch/egg-rpc-like.git"
   },
-  "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
-  },
-  "homepage": "https://github.com/eggjs/egg-rpc-like#readme",
+  "homepage": "https://github.com/985ch/egg-rpc-like#readme",
   "author": "985ch",
   "license": "MIT"
 }
