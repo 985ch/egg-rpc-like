@@ -1,6 +1,6 @@
 {
   "name": "egg-rpc-like",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "This plugin allows developers to access remote servers in the form of RPC",
   "eggPlugin": {
     "name": "rpcLike"

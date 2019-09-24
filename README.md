@@ -76,6 +76,7 @@ let data = await app.rpcl.serviceA.test2(); // get data from http://your.site.co
 * When using **simpleCurl**, you must configure host, otherwise an error will be thrown.
 * Member can be in two formats: {$key:'name', api:'', options:''} and 'name', where the latter will be parsed as {$key:'name', api: 'name' }
 * The default options for **simpleCurl** are {method:'GET',dataType:'json'}, which can also be specified in member or config
+* The configuration can use the onFail function to handle request failures.
 
 ### functionCurl
 * **functionCurl** requires that the returned data be a JSON and the format must be {err:-1,msg:'msg'} or {data:data}
@@ -83,6 +84,7 @@ let data = await app.rpcl.serviceA.test2(); // get data from http://your.site.co
 * When using **functionCurl**, you must configure host, otherwise an error will be thrown.
 * Member can be in two formats: {$key:'name', api:'', options:''} and 'name', where the latter will be parsed as {$key:'name', api: 'name' }
 * The default options for **functionCurl** are {method:'GET',dataType:'json'}, which can also be specified in member or config
+* The configuration can use the onFail function to handle request failures, and the onError function to handle RPC method errors.
 
 ### Custom generator
 Reference [here](./index.js)

@@ -75,6 +75,7 @@ let data = await app.rpcl.serviceA.test2(); // get data from http://your.site.co
 * 使用simpleCurl时，配置中必须要有host，否则会产生一个错误
 * member可以有两种格式：{$key:'name',api:'',options:''}和'name'，其中后者会被解析为{$key:'name',api:'name'}
 * simpleCurl默认的options是{method:'GET',dataType:'json'}，也可以在member或config中指定，其中member中的options最优先
+* 可以在配置里用onFail函数来自定义请求失败后的处理
 
 ### functionCurl
 * functionCurl要求返回的数据是一个JSON，并且格式必须是{err:-1,msg:'msg'}或{data:data}
@@ -82,6 +83,7 @@ let data = await app.rpcl.serviceA.test2(); // get data from http://your.site.co
 * 使用functionCurl时，配置中必须要有host，否则会产生一个错误
 * member可以有两种格式：{$key:'name',api:'',options:''}和'name'，其中后者会被解析为{$key:'name',api:'name'}
 * functionCurl默认的options是{method:'GET',dataType:'json'}，也可以在member或config中指定，其中member中的options最优先
+* 可以在配置里用onFail函数来自定义请求失败后的处理，用onError函数来实现对RPC接口报错的处理
 
 ### 自定义生成器
 由于可以在函数中获取app对象，因此也可以访问诸如app.sequelize和app.redis等对象，利用这一点可以制作出各种各样的生成器而不仅限于curl。<br />
