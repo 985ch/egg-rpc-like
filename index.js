@@ -13,7 +13,7 @@ function simpleCurl(getData) {
       const { status, data } = await this.app.curl(url, opt);
       if (status !== 200) {
         if (onFail) {
-          onFail(status, data);
+          onFail(status, data, url);
         } else {
           throw new Error(`failed to request [${opt.method}]${url} status:${status}`);
         }
@@ -41,10 +41,10 @@ function functionCurl(member, { paramName, host, options, onFail, onError }) {
     const url = host + '/' + api;
     const { status, data } = await this.app.curl(url, opt);
     if (status !== 200) {
-      if (onFail) return onFail(status, data);
+      if (onFail) return onFail(status, data, url);
       throw new Error(`failed to request [${opt.method}]${url} status:${status}`);
     } else if (data.err) {
-      if (onError) return onError(data);
+      if (onError) return onError(data, url);
       throw new Error(`remote function error ${url},code:${data.err},msg:${data.msg}`);
     }
 
