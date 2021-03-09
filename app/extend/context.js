@@ -6,7 +6,7 @@ module.exports = {
   get rpcl() {
     return generate(this.app.config.rpcLike, {
       app: this.app,
-      ctx: this.ctx,
+      ctx: this,
       service: this.service,
     });
   },
